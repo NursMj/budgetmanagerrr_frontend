@@ -32,12 +32,7 @@
 			}
 		}
 
-		if (auth.isAuth) {
-			state.isAuthenticated = true;
-			state.isInitialized = true;
-		} else {
-			init();
-		}
+		init();
 
 		return () => {
 			cancelled = true;
