@@ -2,7 +2,7 @@
 	import { create, test, enforce } from 'vest';
 	import axios, { AxiosError } from 'axios';
 	import { goto } from '$app/navigation';
-	import { API_BASE_URL } from '$env/static/private';
+	import { PUBLIC_BASE_URL } from '$env/static/public';
 
 	let name: string = $state('');
 	let email: string = $state('');
@@ -62,7 +62,7 @@
 	): Promise<boolean> => {
 		responceError = null;
 		try {
-			await axios.post(`${API_BASE_URL}/user`, formData);
+			await axios.post(`${PUBLIC_BASE_URL}/user`, formData);
 			return true;
 		} catch (error: any) {
 			if (error instanceof AxiosError) {

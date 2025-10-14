@@ -2,7 +2,7 @@
 	import { create, test, enforce } from 'vest';
 	import axios, { AxiosError } from 'axios';
 	import { goto } from '$app/navigation';
-	import { API_BASE_URL } from '$env/static/private';
+	import { PUBLIC_BASE_URL } from '$env/static/public';
 
 	let email: string = $state('');
 	let password: string = $state('');
@@ -32,7 +32,7 @@
 	const sendLoginRequest = async (formData: FormData): Promise<boolean> => {
 		responceError = null;
 		try {
-			const response = await axios.post(`${API_BASE_URL}/auth/`, formData);
+			const response = await axios.post(`${PUBLIC_BASE_URL}/auth/`, formData);
 			return true;
 		} catch (error: any) {
 			if (error instanceof AxiosError) {
