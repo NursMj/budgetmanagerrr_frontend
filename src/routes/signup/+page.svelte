@@ -65,7 +65,6 @@
 			await axios.post(`${API_BASE_URL}/user`, formData);
 			return true;
 		} catch (error: any) {
-			console.log('Response:', error);
 			if (error instanceof AxiosError) {
 				responceError = error.response?.data?.message;
 			} else {
