@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { create, test, enforce } from 'vest';
-	import axios, { AxiosError } from 'axios';
 	import { goto } from '$app/navigation';
-	import { PUBLIC_BASE_URL } from '$env/static/public';
+	import { login } from '$lib/utils/auth';
 
 	let email: string = $state('');
 	let password: string = $state('');
@@ -29,31 +28,19 @@
 		});
 	});
 
-	const sendLoginRequest = async (formData: FormData): Promise<boolean> => {
-		responceError = null;
-		try {
-			const response = await axios.post(`${PUBLIC_BASE_URL}/auth/`, formData);
-			return true;
-		} catch (error: any) {
-			if (error instanceof AxiosError) {
-				responceError = error.response?.data?.message;
-			} else {
-				responceError = error.message || error;
-			}
-			return false;
-		}
-	};
-
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
 		validationResult = validate({ email, password });
 
 		if (validationResult.isValid()) {
+			responceError = null;
 			loading = true;
-			const result = await sendLoginRequest({ email, password });
+			const result = await login(email, password);
 			loading = false;
-			if (result) {
+			if (result.success) {
 				goto('/');
+			} else {
+				responceError = result.error
 			}
 		}
 	}

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { create, test, enforce } from 'vest';
-	import axios, { AxiosError } from 'axios';
 	import { goto } from '$app/navigation';
-	import { PUBLIC_BASE_URL } from '$env/static/public';
+	import { register } from '$lib/utils/auth';
 
 	let name: string = $state('');
 	let email: string = $state('');
@@ -57,34 +56,19 @@
 		});
 	});
 
-	const sendCreateUserRequest = async (
-		formData: Omit<FormData, 'confirmPassword'>
-	): Promise<boolean> => {
-		responceError = null;
-		try {
-			await axios.post(`${PUBLIC_BASE_URL}/user`, formData);
-			return true;
-		} catch (error: any) {
-			if (error instanceof AxiosError) {
-				responceError = error.response?.data?.message;
-			} else {
-				responceError = error.message || error;
-			}
-			return false;
-		}
-	};
-
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
 		validationResult = validate({ name, email, password, confirmPassword });
 
 		if (validationResult.isValid()) {
+			responceError = null;
 			loading = true;
-			const result = await sendCreateUserRequest({ name, email, password });
+			const result = await register({ name, email, password });
 			loading = false;
-			if (result) {
-				alert('Signed up successfully! Now you will be navigated to sign in page.');
-				goto('/signin');
+			if (result.success) {
+				goto('/');
+			} else {
+				responceError = result.error
 			}
 		}
 	}
