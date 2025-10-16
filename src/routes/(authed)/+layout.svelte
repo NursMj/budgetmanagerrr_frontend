@@ -2,7 +2,10 @@
 	import { initializeAuth } from '$lib/utils/auth';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { auth } from "$lib/states/auth.svelte";
+
+	import Header from './Header.svelte';
+	import Sidebar from './Sidebar.svelte';
+	import { sidebar } from '$lib/states/interface.svelte';
 
 	// Single state object with runes
 	let state = $state({
@@ -50,7 +53,14 @@
 {#if !state.isInitialized}
 	<div class="loading">Loading...</div>
 {:else}
-	{@render children()}
+	<Header />
+
+	{#if sidebar.opened}
+		<Sidebar />
+	{/if}
+	<div class="px-4 lg:mx-auto lg:max-w-4xl lg:px-6 2xl:max-w-7xl">
+		{@render children()}
+	</div>
 {/if}
 
 <style>
