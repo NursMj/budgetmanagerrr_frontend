@@ -58,7 +58,7 @@
 	{#if sidebar.opened}
 		<Sidebar />
 	{/if}
-	<div class="px-4 lg:mx-auto lg:max-w-4xl lg:px-6 2xl:max-w-7xl">
+	<div class="px-4 py-10 lg:mx-auto lg:max-w-4xl lg:px-6 2xl:max-w-7xl">
 		{@render children()}
 	</div>
 {/if}

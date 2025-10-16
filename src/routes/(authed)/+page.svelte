@@ -1,4 +1,15 @@
 <script lang="ts">
+	import AccountsBlock from './AccountsBlock.svelte';
+	import ExpensesBlock from './ExpensesBlock.svelte';
+	import IncomesBlock from './IncomesBlock.svelte';
 </script>
 
-<h1>Budgetmanager home page</h1>
+<IncomesBlock />
+
+<hr />
+
+<AccountsBlock />
+
+<hr />
+
+<ExpensesBlock />
