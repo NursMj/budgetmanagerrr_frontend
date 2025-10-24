@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="acount flex w-20 flex-col items-center rounded border border-solid border-indigo-400 px-1.5 py-0.5"
+	class="acount flex w-20 flex-shrink-0 flex-col items-center rounded border border-solid border-indigo-400 px-1.5 py-0.5"
 >
 	<span class="w-fit">{item.name}</span>
 	<div class="flex flex-col items-center gap-2">

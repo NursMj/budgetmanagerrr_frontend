@@ -22,10 +22,12 @@
 
 <div class="mb-3 lg:mb-6">
 	<h3 class="mb-2 lg:mb-3 text-lg">Accounts</h3>
-	<div class="flex gap-3">
-		{#each items as item}
-			<Item {item} {onHistoryClick} {onOperationClick} />
-		{/each}
-		<AddItem type={"Account"} onClick={onClickAddNew}  />
+	<div class="w-full max-w-full overflow-auto">
+		<div class="flex gap-3">
+			{#each items as item}
+				<Item {item} {onHistoryClick} {onOperationClick} />
+			{/each}
+			<AddItem type={"Account"} onClick={onClickAddNew}  />
+		</div>
 	</div>
 </div>

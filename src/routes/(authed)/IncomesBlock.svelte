@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition'
 	import Item from './Item.svelte';
 	import AddItem from './AddItem.svelte';
 
@@ -57,12 +58,14 @@
 	</div>
 
 	{#if opened}
-		<div class="flex gap-3">
-			{#each items as item}
-				<Item {item} {onHistoryClick} {onOperationClick} />
-			{/each}
+		<div class="w-full max-w-full overflow-auto" transition:slide>
+			<div class="flex gap-3">
+				{#each items as item}
+					<Item {item} {onHistoryClick} {onOperationClick} />
+				{/each}
 
-			<AddItem type={'Income'} onClick={onClickAddNew} />
+				<AddItem type={'Income'} onClick={onClickAddNew} />
+			</div>
 		</div>
 	{/if}
 </div>
