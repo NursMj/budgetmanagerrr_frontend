@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Item from './Item.svelte';
-	import AddItem from './AddItem.svelte';
+	import Item from './items/Item.svelte';
+	import AddItem from './items/AddItem.svelte';
 
 	const items = [
 		{ name: 'Food', total: '15000' },

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import AccountsBlock from './AccountsBlock.svelte';
-	import ExpensesBlock from './ExpensesBlock.svelte';
-	import IncomesBlock from './IncomesBlock.svelte';
+	import AccountsBlock from '$lib/components/blocks/AccountsBlock.svelte';
+	import ExpensesBlock from '$lib/components/blocks/ExpensesBlock.svelte';
+	import IncomesBlock from '$lib/components/blocks/IncomesBlock.svelte';
 </script>
 
 <IncomesBlock />

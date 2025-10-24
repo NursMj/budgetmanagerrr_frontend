@@ -3,8 +3,8 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 
-	import Header from './Header.svelte';
-	import Sidebar from './Sidebar.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { sidebar } from '$lib/states/interface.svelte';
 
 	// Single state object with runes
