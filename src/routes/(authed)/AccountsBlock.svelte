@@ -26,6 +26,6 @@
 		{#each items as item}
 			<Item {item} {onHistoryClick} {onOperationClick} />
 		{/each}
-		<AddItem type={"Expenses"} onClick={onClickAddNew}  />
+		<AddItem type={"Account"} onClick={onClickAddNew}  />
 	</div>
 </div>
