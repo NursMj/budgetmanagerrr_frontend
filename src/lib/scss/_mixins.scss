@@ -1,0 +1,5 @@
+@mixin isHoverable {
+	@media (hover: hover) {
+		@content;
+	}
+}

@@ -4,6 +4,15 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `
+                @use '$lib/scss/mixins' as *;
+            `
+			}
+		}
+	},
 	test: {
 		projects: [
 			{
