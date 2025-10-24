@@ -19,12 +19,12 @@
 		alert('Soon you will be able to add new Income');
 	};
 
-	const totalInThisMonth = $derived(items.reduce((total, previews) => total + +previews.total, 0))
+	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0))
 </script>
 
 <div class="mb-3 lg:mb-6">
-	<div class="mb-2 lg:mb-3 flex items-center justify-between">
-		<div class="flex gap-2 items-baseline">
+	<div class="mb-2 lg:mb-3 flex gap-2 items-center justify-between">
+		<div class="flex flex-grow justify-between items-baseline">
 			<h3 class="text-lg">Incomes</h3>
 			<span class="text-sm">In this month: {totalInThisMonth}</span>
 		</div>

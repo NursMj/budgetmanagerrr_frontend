@@ -17,10 +17,15 @@
 	const onClickAddNew = () => {
 		alert('Soon you will be able to add new Expenses category');
 	};
+
+	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0))
 </script>
 
 <div class="mb-3 lg:mb-6">
-	<h3 class="mb-2 lg:mb-3 text-lg">Expenses</h3>
+	<div class="mb-2 lg:mb-3 flex justify-between items-baseline">
+		<h3 class="text-lg">Expenses</h3>
+		<span class="text-sm">In this month: {totalInThisMonth}</span>
+	</div>
 	<div class="flex gap-3 flex-wrap">
 		{#each items as item}
 			<Item {item} {onHistoryClick} />

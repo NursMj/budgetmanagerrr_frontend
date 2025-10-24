@@ -18,10 +18,15 @@
 	const onClickAddNew = () => {
 		alert('Soon you will be able to add new Account');
 	};
+
+	const totalBalance = $derived(items.reduce((total, current) => total + +current.total, 0))
 </script>
 
 <div class="mb-3 lg:mb-6">
-	<h3 class="mb-2 lg:mb-3 text-lg">Accounts</h3>
+	<div class="mb-2 lg:mb-3 flex justify-between items-baseline">
+		<h3 class="text-lg">Accounts</h3>
+		<span class="text-sm">Balance: {totalBalance}</span>
+	</div>
 	<div class="w-full max-w-full overflow-auto">
 		<div class="flex gap-3">
 			{#each items as item}
