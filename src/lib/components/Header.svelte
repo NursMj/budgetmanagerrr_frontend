@@ -15,7 +15,7 @@
 		<div class="logo text-lg font-bold md:text-2xl"><a href="/">Budgetmanagerrr</a></div>
 		<nav class="hidden md:block">
 			<ul class="flex gap-3">
-				<li><a class="w-full" href="/statistics">Statistic</a></li>
+				<li><a class="w-full" href="/statistics">Statistics</a></li>
 				<li><a class="w-full" href="/history">History</a></li>
 				<li><a class="w-full" href="/support">Support</a></li>
 			</ul>

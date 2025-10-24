@@ -24,7 +24,7 @@
 
 	<nav class="flex flex-col gap-3">
 		<ul class="flex flex-col gap-3">
-			<li><a href="/statistics">Statistic</a></li>
+			<li><a href="/statistics">Statistics</a></li>
 			<li><a href="/history">History</a></li>
 			<li><a href="/support">Support</a></li>
 		</ul>
