@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+:root {
+  --income-color: theme(colors.blue.400);
+  --account-color: theme(colors.indigo.400);
+  --expenses-color: theme(colors.orange.400);
+}

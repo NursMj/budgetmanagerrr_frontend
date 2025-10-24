@@ -3,7 +3,7 @@
 	import Item from './items/Item.svelte';
 	import AddItem from './items/AddItem.svelte';
 
-	const items = [{ name: 'Salary', total: '110000', operation_type: 'outcome' }];
+	const items = [{ name: 'Salary', total: '110000', type: "income", operation_type: 'income' }];
 
 	let opened = $state(true);
 
@@ -29,6 +29,7 @@
 			<span class="text-sm">In this month: {totalInThisMonth}</span>
 		</div>
 		<button
+			class="btn"
 			style="transform: rotate({opened ? 180 : 0}deg); transition: all ease .3s"
 			aria-label="Close"
 			onclick={() => (opened = !opened)}
@@ -64,7 +65,7 @@
 					<Item {item} {onHistoryClick} {onOperationClick} />
 				{/each}
 
-				<AddItem type={'Income'} onClick={onClickAddNew} />
+				<AddItem type={'income'} onClick={onClickAddNew} />
 			</div>
 		</div>
 	{/if}

@@ -3,11 +3,11 @@
 	import AddItem from './items/AddItem.svelte';
 
 	const items = [
-		{ name: 'Food', total: '15000' },
-		{ name: 'Sadaqa', total: '10000' },
-		{ name: 'Gas', total: '15000' },
-		{ name: 'Children', total: '10000' },
-		{ name: 'Rest', total: '15000' },
+		{ name: 'Food', total: '15000', type: "expenses" },
+		{ name: 'Sadaqa', total: '10000', type: "expenses" },
+		{ name: 'Gas', total: '15000', type: "expenses" },
+		{ name: 'Children', total: '10000', type: "expenses" },
+		{ name: 'Rest', total: '15000', type: "expenses" },
 	];
 
 	const onHistoryClick = (category: string) => {
@@ -30,6 +30,6 @@
 		{#each items as item}
 			<Item {item} {onHistoryClick} />
 		{/each}
-		<AddItem type={"Expenses"} onClick={onClickAddNew}  />
+		<AddItem type={"expenses"} onClick={onClickAddNew}  />
 	</div>
 </div>
