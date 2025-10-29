@@ -3,11 +3,10 @@
 
 	interface Props {
 		item: MoneyPool;
-		onHistoryClick: (name: string) => void;
 		onOperationClick?: (moneyPool: MoneyPool) => void;
 	}
 
-	const { item, onHistoryClick, onOperationClick }: Props = $props();
+	const { item, onOperationClick }: Props = $props();
 </script>
 
 <div
@@ -16,18 +15,18 @@
 >
 	<span class="w-fit">{item.name}</span>
 	<div class="flex flex-col items-center gap-2">
-		<button
-			onclick={() => onHistoryClick(item.name)}
-			class="btn btn_history cursor-pointer rounded p-1 text-white">History</button
+		<a
+			href="history/{item.type}/{item.id}"
+			class="btn btn_history cursor-pointer rounded p-1 text-white">History</a
 		>
 		{#if item.operation_type && onOperationClick}
 			<button
 				onclick={() => onOperationClick(item)}
-				class="btn btn_action flex w-full cursor-pointer justify-center rounded border border-solid p-1"
+				class="btn btn_action flex w-full cursor-pointer justify-center rounded p-1"
 				aria-label="outcome"
 				><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
 					><path
-						class="fill-current"
+						class="fill-white"
 						d="M0 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v6h8V5l5 5-5 5v-3z"
 					/></svg
 				>
@@ -43,16 +42,7 @@
 		border-color: var(--color);
 
 		.btn {
-			&_history {
-				background-color: var(--color);
-			}
-			&_action {
-				border-color: var(--color);
-
-				path {
-					color: var(--color);
-				}
-			}
+			background-color: var(--color);
 		}
 
 		.total {

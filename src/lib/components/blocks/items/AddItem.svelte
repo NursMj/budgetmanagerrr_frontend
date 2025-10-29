@@ -4,7 +4,7 @@
 
 <button
     onclick={onClick}
-	class="btn add-item relative cursor-pointer flex w-20 flex-shrink-0 min-h-[86px] flex-col items-center justify-center rounded border-2 border-dashed px-1.5 py-0.5"
+	class="btn bg-white add-item relative cursor-pointer flex w-20 flex-shrink-0 min-h-[86px] flex-col items-center justify-center rounded border-2 border-dashed px-1.5 py-0.5"
 	style="
 		--color: var(--{type}-color);
 	"
@@ -15,7 +15,6 @@
 
 <style lang="scss">
 	.add-item {
-		
 		border-color: var(--color);
 		.plus {
 			color: var(--color);
