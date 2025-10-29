@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition'
+	import { slide } from 'svelte/transition';
 	import Item from './items/Item.svelte';
 	import AddItem from './items/AddItem.svelte';
+	import type { MoneyPool } from '$lib/types/transaction.ts';
 
-	const items = [{ name: 'Salary', total: '110000', type: "income", operation_type: 'income' }];
+	const items: MoneyPool[] = [
+		{ id: 1, name: 'Salary', total: '110000', type: 'income', operation_type: 'income' }
+	];
 
 	let opened = $state(true);
 
@@ -11,7 +14,7 @@
 		alert('Soon you will be able to see history of this Income sorce');
 	};
 
-	const onOperationClick = () => {
+	const onOperationClick = (item: MoneyPool) => {
 		alert('Soon you will be able to write new Income');
 	};
 
@@ -19,12 +22,12 @@
 		alert('Soon you will be able to add new Income');
 	};
 
-	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0))
+	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0));
 </script>
 
 <div class="mb-3 lg:mb-6">
-	<div class="mb-2 lg:mb-3 flex gap-2 items-center justify-between">
-		<div class="flex flex-grow justify-between items-baseline">
+	<div class="mb-2 flex items-center justify-between gap-2 lg:mb-3">
+		<div class="flex flex-grow items-baseline justify-between">
 			<h3 class="text-lg">Incomes</h3>
 			<span class="text-sm">In this month: {totalInThisMonth}</span>
 		</div>

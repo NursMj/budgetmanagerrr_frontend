@@ -1,5 +1,13 @@
 <script lang="ts">
-	const { item, onHistoryClick, onOperationClick = null } = $props();
+	import type { MoneyPool } from '$lib/types/transaction.ts';
+
+	interface Props {
+		item: MoneyPool;
+		onHistoryClick: (name: string) => void;
+		onOperationClick?: (moneyPool: MoneyPool) => void;
+	}
+
+	const { item, onHistoryClick, onOperationClick }: Props = $props();
 </script>
 
 <div
@@ -12,9 +20,9 @@
 			onclick={() => onHistoryClick(item.name)}
 			class="btn btn_history cursor-pointer rounded p-1 text-white">History</button
 		>
-		{#if item.operation_type}
+		{#if item.operation_type && onOperationClick}
 			<button
-				onclick={onOperationClick}
+				onclick={() => onOperationClick(item)}
 				class="btn btn_action flex w-full cursor-pointer justify-center rounded border border-solid p-1"
 				aria-label="outcome"
 				><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -37,7 +45,6 @@
 		.btn {
 			&_history {
 				background-color: var(--color);
-
 			}
 			&_action {
 				border-color: var(--color);
