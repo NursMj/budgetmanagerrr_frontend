@@ -10,11 +10,13 @@
 	:global(.btn) {
 		transition: all ease-out 0.3s;
 
-		@apply cursor-pointer;
-
-		@include isHoverable {
-			&:hover {
-				filter: brightness(85%);
+		&:not([disabled]) {
+			@apply cursor-pointer;
+			
+			@include isHoverable {
+				&:hover {
+					filter: brightness(85%);
+				}
 			}
 		}
 	}
