@@ -2,11 +2,10 @@
 	import { slide } from 'svelte/transition';
 	import Item from './items/Item.svelte';
 	import AddItem from './items/AddItem.svelte';
-	import type { MoneyPool } from '$lib/types/transaction.ts';
+	import { transactionMadal } from '$lib/states/interface.svelte';
+	import { transferFrom, moneyPoolBlocks} from '$lib/states/transaction.svelte';
 
-	const items: MoneyPool[] = [
-		{ id: 1, name: 'Salary', total: '110000', type: 'income', operation_type: 'income' }
-	];
+	import type { MoneyPool } from '$lib/types/transaction.ts';
 
 	let opened = $state(true);
 
@@ -15,14 +14,15 @@
 	};
 
 	const onOperationClick = (item: MoneyPool) => {
-		alert('Soon you will be able to write new Income');
+		transferFrom.value = item;
+		transactionMadal.opened = true;
 	};
 
 	const onClickAddNew = () => {
 		alert('Soon you will be able to add new Income');
 	};
 
-	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0));
+	const totalInThisMonth = $derived(moneyPoolBlocks.incomes.reduce((total, current) => total + +current.total, 0));
 </script>
 
 <div class="mb-3 lg:mb-6">
@@ -64,7 +64,7 @@
 	{#if opened}
 		<div class="w-full max-w-full overflow-auto" transition:slide>
 			<div class="flex gap-3">
-				{#each items as item}
+				{#each moneyPoolBlocks.incomes as item}
 					<Item {item} {onHistoryClick} {onOperationClick} />
 				{/each}
 

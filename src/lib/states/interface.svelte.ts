@@ -2,4 +2,8 @@ const sidebar = $state({
 	opened: false
 });
 
-export { sidebar };
+const transactionMadal = $state({
+	opened: false
+});
+
+export { sidebar, transactionMadal };

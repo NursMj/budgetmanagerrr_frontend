@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Item from './items/Item.svelte';
 	import AddItem from './items/AddItem.svelte';
+	import { moneyPoolBlocks } from '$lib/states/transaction.svelte';
+
 	import type { MoneyPool } from '$lib/types/transaction.ts';
 
 	const items: MoneyPool[] = [
@@ -19,7 +21,7 @@
 		alert('Soon you will be able to add new Expenses category');
 	};
 
-	const totalInThisMonth = $derived(items.reduce((total, current) => total + +current.total, 0));
+	const totalInThisMonth = $derived(moneyPoolBlocks.expenses.reduce((total, current) => total + +current.total, 0));
 </script>
 
 <div class="mb-3 lg:mb-6">
@@ -28,7 +30,7 @@
 		<span class="text-sm">In this month: {totalInThisMonth}</span>
 	</div>
 	<div class="flex flex-wrap gap-3">
-		{#each items as item}
+		{#each moneyPoolBlocks.expenses as item}
 			<Item {item} {onHistoryClick} />
 		{/each}
 		<AddItem type={'expenses'} onClick={onClickAddNew} />

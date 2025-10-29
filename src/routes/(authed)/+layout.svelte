@@ -2,10 +2,12 @@
 	import { initializeAuth } from '$lib/utils/auth';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
+	import { fade } from 'svelte/transition';
 
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
-	import { sidebar } from '$lib/states/interface.svelte';
+	import { sidebar, transactionMadal } from '$lib/states/interface.svelte';
+	import TransactionModal from '$lib/components/modals/TransactionModal.svelte';
 
 	// Single state object with runes
 	let state = $state({
@@ -61,6 +63,12 @@
 	<div class="px-4 py-6 lg:py-10 lg:mx-auto lg:max-w-4xl lg:px-6 2xl:max-w-7xl">
 		{@render children()}
 	</div>
+
+	{#if transactionMadal.opened}
+		<div class="wrapper" transition:fade>
+			<TransactionModal />
+		</div>
+	{/if}
 {/if}
 
 <style>
