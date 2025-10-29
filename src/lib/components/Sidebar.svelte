@@ -2,10 +2,10 @@
 	import { fade, fly } from 'svelte/transition';
 	import { auth } from '$lib/states/auth.svelte';
 	import { logout } from '$lib/utils/auth';
-	import { setSidebar } from '$lib/states/interface.svelte';
+	import { sidebar } from '$lib/states/interface.svelte';
 
 	const closeSideBar = () => {
-		setSidebar(false);
+		sidebar.opened = false;
 	};
 </script>
 

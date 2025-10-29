@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { auth } from '$lib/states/auth.svelte';
-	import { setSidebar } from '$lib/states/interface.svelte';
+	import { sidebar } from '$lib/states/interface.svelte';
 	import { logout } from '$lib/utils/auth';
 
 	const openSidebar = () => {
-		setSidebar(true);
+		sidebar.opened = true;
 	};
 </script>
 
