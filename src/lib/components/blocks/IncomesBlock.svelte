@@ -65,7 +65,7 @@
 		<div class="w-full max-w-full overflow-auto" transition:slide>
 			<div class="flex gap-3">
 				{#each moneyPoolBlocks.incomes as item}
-					<Item {item} {onHistoryClick} {onOperationClick} />
+					<Item {item} {onOperationClick} />
 				{/each}
 
 				<AddItem type={'income'} onClick={onClickAddNew} />

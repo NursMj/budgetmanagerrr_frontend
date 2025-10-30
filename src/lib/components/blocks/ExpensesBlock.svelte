@@ -31,7 +31,7 @@
 	</div>
 	<div class="flex flex-wrap gap-3">
 		{#each moneyPoolBlocks.expenses as item}
-			<Item {item} {onHistoryClick} />
+			<Item {item} />
 		{/each}
 		<AddItem type={'expenses'} onClick={onClickAddNew} />
 	</div>

@@ -30,7 +30,7 @@
 	<div class="w-full max-w-full overflow-auto">
 		<div class="flex gap-3">
 			{#each moneyPoolBlocks.accounts as item}
-				<Item {item} {onHistoryClick} {onOperationClick} />
+				<Item {item} {onOperationClick} />
 			{/each}
 			<AddItem type={'account'} onClick={onClickAddNew} />
 		</div>
