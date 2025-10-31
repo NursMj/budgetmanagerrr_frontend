@@ -9,6 +9,7 @@ interface MoneyPool {
 }
 
 interface Transaction {
+	id: number;
 	from: MoneyPool;
 	to: MoneyPool;
 	date: Date;
@@ -16,4 +17,8 @@ interface Transaction {
 	comment: string;
 }
 
-export type { MoneyPool, Transaction };
+interface MoneyPoolWithTransactions extends MoneyPool {
+	transactions: Transaction[];
+}
+
+export type { MoneyPool, Transaction, MoneyPoolWithTransactions, MoneyPoolType };
