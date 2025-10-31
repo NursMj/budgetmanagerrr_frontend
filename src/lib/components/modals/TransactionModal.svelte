@@ -38,7 +38,7 @@
 	let to = $state(transaction.value?.to || null);
 	let transferAmount = $state(transaction.value?.amount || null);
 	let transactionDate: Date = $state(transaction.value?.date || new Date());
-	let formattedDate = $derived(transactionDate.toLocaleDateString('en-GB'));
+	let formattedDate = $derived(transactionDate.toLocaleDateString());
 </script>
 
 <Modal {onClose}>
@@ -85,8 +85,4 @@
 	</div>
 </Modal>
 
-<style lang="scss">
-	select:disabled {
-		opacity: 0.5;
-	}
-</style>
+
